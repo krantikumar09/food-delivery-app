@@ -1,6 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/App.jsx", "./src/components/Navbar.jsx"],
+  content: [
+    "./index.html",
+    "./src/App.jsx",
+    "./src/components/Navbar.jsx",
+    "./src/pages/Cart/Cart.jsx",
+    "./src/pages/PlaceOrder/PlaceOrder.jsx",
+    "./src/pages/Home/Home.jsx",
+    "./src/components/ExploreMenu/ExploreMenu.jsx",
+  ],
   theme: {
     extend: {
       colors: {

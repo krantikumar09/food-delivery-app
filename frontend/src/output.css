@@ -52,6 +52,126 @@
   }
 }
 
+/* header */
+
+.header {
+  width: 100%;
+  height: 34vw;
+  margin: 30px auto;
+  background-image: url(./assets/header-img.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  overflow: hidden;
+}
+
+.header::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.5)
+  );
+  z-index: 1;
+}
+
+.header-contents {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1.5vw;
+  max-width: 50%;
+  bottom: 10%;
+  left: 6vw;
+  animation: fadeIn 2.5s;
+  -webkit-animation: fadeIn 2.5s;
+  z-index: 2;
+}
+
+.header-contents h2 {
+  font-weight: 800;
+  color: #fff;
+  font-size: max(4vw, 18px);
+  text-transform: capitalize;
+}
+
+.header-contents p {
+  color: #fff;
+  /* font-size: 1.5vw; */
+}
+
+.header-contents button {
+  color: #747474;
+  padding: 1vw 2vw;
+  background-color: #fff;
+  border: none;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 1050px) {
+  .header {
+    height: 58vw;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .header-contents {
+    max-width: 80%;
+  }
+
+  .header-contents h2 {
+    font-size: 22px;
+  }
+
+  .header-contents p {
+    font-size: 1.6vw;
+  }
+
+  .header-contents button {
+    padding: 1.4vw 3.8vw;
+    font-size: 12px;
+  }
+}
+
+/* explore menu */
+
+.explore-menu-list img {
+  min-width: 80px;
+  width: 7.5vw;
+  transition: 0.3s;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.explore-menu-list .active {
+  border: 4px solid tomato;
+  padding: 2px;
+}
+
 .explore-menu-list::-webkit-scrollbar {
   display: none;
 }
