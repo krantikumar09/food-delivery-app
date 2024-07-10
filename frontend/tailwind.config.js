@@ -8,13 +8,18 @@ export default {
     "./src/pages/PlaceOrder/PlaceOrder.jsx",
     "./src/pages/Home/Home.jsx",
     "./src/components/ExploreMenu/ExploreMenu.jsx",
+    "./src/components/FoodDisplay/FoodDisplay.jsx",
+    "./src/components/FoodItem/FoodItem.jsx",
+    "./src/components/Footer/Footer.jsx",
+    "./src/components/LoginPopup/LoginPopup.jsx",
+    "./src/components/AppDownload/AppDownload.jsx",
   ],
   theme: {
     extend: {
       colors: {
         tomato: "tomato",
         "light-blue": "#49557e",
-        "heading-color": "#262626",
+        "pri-color": "#272d2f",
         "section-para": "#808080",
         "para-color": "#676767",
       },
@@ -39,6 +44,5 @@ export default {
       },
     },
   },
-  // eslint-disable-next-line no-undef
   plugins: [require("daisyui")],
 };

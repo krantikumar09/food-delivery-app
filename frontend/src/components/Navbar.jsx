@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { assets } from "../assets/assets";
+import { StoreContext } from "../context/StoreContext";
 
-const Navbar = () => {
+const Navbar = ({ setShowLogin }) => {
+  const { getTotalCartAmount } = useContext(StoreContext);
+
   return (
     <div className="navbar bg-base-100 container mx-auto py-3 md:py-5">
       {/* navbar start */}
@@ -36,12 +39,12 @@ const Navbar = () => {
           </ul>
         </div>
         {/* logo */}
-        <a
-          href="/"
+        <Link
+          to="/"
           className="text-base xs:text-xl sm:text-2xl md:text-3xl font-bold text-tomato"
         >
           The Kitchn
-        </a>
+        </Link>
       </div>
 
       {/* navbar center */}
@@ -56,16 +59,24 @@ const Navbar = () => {
 
       {/* navbar end */}
       <div className="navbar-end">
-        <div className="navbar-right flex items-center gap-6 md:gap-10">
+        <div className="navbar-right flex items-center gap-3 xs:gap-4 sm:gap-6 md:gap-10">
           <img src={assets.search_icon} alt="search" className="w-[22px]" />
           <div className="navbar-search-icon relative">
-            <a to="/cart">
+            <Link to="/cart">
               <img src={assets.basket_icon} alt="cart" className="w-[22px]" />
-            </a>
-            <div className="absolute min-h-[10px] min-w-[10px] bg-tomato rounded-full -top-[8px] -right-[8px] text-white text-[12px] p-[2px]"></div>
+            </Link>
+            <div
+              className={
+                getTotalCartAmount() === 0
+                  ? ""
+                  : "absolute min-h-[10px] min-w-[10px] bg-tomato rounded-full -top-[8px] -right-[8px] text-white text-[12px] p-[2px]"
+              }
+            ></div>
           </div>
 
-          <button className="pri-btn">sign in</button>
+          <button className="pri-btn" onClick={() => setShowLogin(true)}>
+            sign in
+          </button>
         </div>
       </div>
     </div>
