@@ -31,7 +31,7 @@ const Cart = () => {
                           <img className="w-20" src={url + "/images/" + item.image} alt="" />
                         </th>
                         <th>{item.name}</th>
-                        <th>${item.price}</th>
+                        <th>&#8377; {item.price}</th>
                         <th>{cartItems[item._id]}</th>
                         <th>{item.price * cartItems[item._id]}</th>
                         <th>
@@ -64,19 +64,19 @@ const Cart = () => {
 
               <div className="cart-total-details flex items-center justify-between mb-2">
                 <p className="text-sm sm:text-base">Subtotal</p>
-                <p>$ {getTotalCartAmount()}</p>
+                <p>&#8377; {getTotalCartAmount()}</p>
               </div>
 
               <div className="cart-total-details flex items-center justify-between mb-2">
                 <p className="text-sm sm:text-base">Delivery Fee</p>
-                <p>$ {getTotalCartAmount() === 0 ? 0 : 2}</p>
+                <p>&#8377; {getTotalCartAmount() === 0 ? 0 : 49}</p>
               </div>
 
               <hr className="my-1" />
 
               <div className="cart-total-details flex items-center justify-between mb-2">
                 <b className="text-sm sm:text-base">Total</b>
-                <b>$ {getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}</b>
+                <b>&#8377; {getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 49}</b>
               </div>
 
               <button
