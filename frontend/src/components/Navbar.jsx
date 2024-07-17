@@ -1,10 +1,18 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import  { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { StoreContext } from "../context/StoreContext";
 
+// eslint-disable-next-line react/prop-types
 const Navbar = ({ setShowLogin }) => {
-  const { getTotalCartAmount } = useContext(StoreContext);
+  const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
+
+  const navigate = useNavigate();
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    navigate("/");
+  };
 
   return (
     <div className="navbar bg-base-100 container mx-auto py-3 md:py-5">
@@ -74,9 +82,47 @@ const Navbar = ({ setShowLogin }) => {
             ></div>
           </div>
 
-          <button className="pri-btn" onClick={() => setShowLogin(true)}>
-            sign in
-          </button>
+          {!token ? (
+            <button className="pri-btn" onClick={() => setShowLogin(true)}>
+              sign in
+            </button>
+          ) : (
+            <div>
+              {/* dropdown avatar */}
+              <div className="dropdown dropdown-hover dropdown-end">
+                <div className="avatar" tabIndex={0}>
+                  <div className="w-10 rounded-full ring ring-primary ring-tomato ring-offset-2">
+                    <img src={assets.avatar} alt="avatar" />
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content z-50 menu p-2 shadow bg-white rounded-box w-52"
+                >
+                  <li>
+                    <a>
+                      <img
+                        className="w-4 h-4"
+                        src={assets.shopping_bag}
+                        alt="shopping pag"
+                      />
+                      <p className="text-sm">Orders</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a onClick={logout}>
+                      <img
+                        className="w-4 h-4"
+                        src={assets.exit}
+                        alt="shopping pag"
+                      />
+                      <p className="text-sm">Log Out</p>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

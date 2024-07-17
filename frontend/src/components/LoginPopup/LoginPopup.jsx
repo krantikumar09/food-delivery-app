@@ -1,16 +1,58 @@
-import React, { useState } from "react";
+import { useContext, useState } from "react";
 import { assets } from "../../assets/assets";
+import { StoreContext } from "../../context/StoreContext";
+import axios from "axios";
+import { toast } from "react-toastify";
 
-const LoginPopup = () => {
+// eslint-disable-next-line react/prop-types
+const LoginPopup = ({ setShowLogin }) => {
+  const { url, token, setToken } = useContext(StoreContext);
   const [currentState, setCurrentState] = useState("Login");
+
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const onChangeHandler = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setData((data) => ({ ...data, [name]: value }));
+  };
+
+  const onLogin = async (event) => {
+    event.preventDefault();
+
+    let newUrl = url;
+    if (currentState === "Login") {
+      newUrl += "/api/user/login";
+    } else {
+      newUrl += "/api/user/register";
+    }
+
+    const response = await axios.post(newUrl, data);
+
+    if (response.data.success) {
+      setToken(response.data.token);
+      localStorage.setItem("token", response.data.token);
+      setShowLogin(false);
+      toast.success(response.data.message);
+    } else {
+      toast.error(response.data.message);
+    }
+  };
 
   return (
     <div className="login-popup absolute z-10 w-full h-full bg-[#00000090] grid">
-      <form className="place-self-center max-w-[360px] w-full text-[#808080] bg-white flex flex-col gap-6 py-6 px-7 text-base animation-fadeIn rounded-md">
+      <form
+        onSubmit={onLogin}
+        className="place-self-center max-w-[360px] w-full text-[#808080] bg-white flex flex-col gap-6 py-6 px-7 text-base animation-fadeIn rounded-md"
+      >
         <div className="flex items-center justify-between text-black">
           <h2 className="text-xl font-medium">{currentState}</h2>
           <img
-            onClick={() => (false)}
+            onClick={() => setShowLogin(false)}
             className="w-[16px] cursor-pointer"
             src={assets.cross_icon}
             alt="close icon"
@@ -32,9 +74,11 @@ const LoginPopup = () => {
               </svg>
               <input
                 type="text"
-                className="grow"
+                className="grow text-black font-[500]"
                 placeholder="Name"
                 name="name"
+                onChange={onChangeHandler}
+                value={data.name}
               />
             </label>
           )}
@@ -52,9 +96,11 @@ const LoginPopup = () => {
             </svg>
             <input
               type="text"
-              className="grow"
+              className="grow text-black font-[500]"
               placeholder="Email"
               name="email"
+              onChange={onChangeHandler}
+              value={data.email}
             />
           </label>
 
@@ -74,9 +120,11 @@ const LoginPopup = () => {
             </svg>
             <input
               type="password"
-              className="grow"
+              className="grow text-black font-[500]"
               placeholder="Password"
               name="password"
+              onChange={onChangeHandler}
+              value={data.password}
             />
           </label>
         </div>

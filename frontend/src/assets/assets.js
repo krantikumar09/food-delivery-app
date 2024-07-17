@@ -1,5 +1,6 @@
 import basket_icon from "./basket_icon.png";
 import logo from "./logo.png";
+import avatar from "./avatar.jpg"
 import header_img from "./header-img.jpg";
 import search_icon from "./search_icon.png";
 import menu_1 from "./menu_1.png";
@@ -63,6 +64,7 @@ import exit from "./exit.png";
 import shopping_bag from "./shopping-bag.png";
 
 export const assets = {
+  avatar,
   logo,
   basket_icon,
   header_img,

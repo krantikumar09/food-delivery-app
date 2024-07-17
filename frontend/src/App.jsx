@@ -8,14 +8,16 @@ import Cart from "./pages/Cart/Cart";
 import Order from "./pages/PlaceOrder/PlaceOrder";
 import Footer from "./components/Footer/Footer";
 import LoginPopup from "./components/LoginPopup/LoginPopup";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-
-  const [showLogin, setShowLogin] = useState(false)
+  const [showLogin, setShowLogin] = useState(false);
 
   return (
     <>
-    {showLogin ? <LoginPopup/> : <></>}
+      <ToastContainer />
+      {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
       <div className="app">
         <Navbar setShowLogin={setShowLogin} />
         <Routes>
@@ -24,7 +26,7 @@ function App() {
           <Route path="/order" element={<Order />} />
         </Routes>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

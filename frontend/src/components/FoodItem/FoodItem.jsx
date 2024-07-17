@@ -3,14 +3,19 @@ import { assets } from "../../assets/assets";
 import { StoreContext } from "../../context/StoreContext";
 
 const FoodItem = ({ id, name, price, description, image }) => {
-  const { cartItems, addToCart, removeFromCart, url } = useContext(StoreContext);
+  const { cartItems, addToCart, removeFromCart, url } =
+    useContext(StoreContext);
 
   return (
     <div className="w-full m-auto rounded-[15px] shadow-food-item animate-fadeIn delay-100">
       <div className="relative">
         {/* img */}
         <div className="relative">
-          <img className="w-full rounded-t-lg" src={url + "/images/" + image} alt="food image" />
+          <img
+            className="w-full rounded-t-lg"
+            src={url + "/images/" + image}
+            alt="food image"
+          />
           {!cartItems[id] ? (
             <img
               onClick={() => addToCart(id)}
@@ -43,7 +48,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
             <img src={assets.rating_starts} alt="stars" className="w-[70px]" />
           </div>
           <p className="text-sm text-para-color mb-2">{description}</p>
-          <p className="text-tomato text-xl font-medium">${price}</p>
+          <p className="text-tomato text-xl font-medium">&#8377; {price}</p>
         </div>
       </div>
     </div>
