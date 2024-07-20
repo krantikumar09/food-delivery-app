@@ -13,6 +13,8 @@ export default {
     "./src/components/Footer/Footer.jsx",
     "./src/components/LoginPopup/LoginPopup.jsx",
     "./src/components/AppDownload/AppDownload.jsx",
+    "./src/pages/PlaceOrder/PlaceOrder.jsx",
+    "./src/pages/Verify/Verify.jsx",
   ],
   theme: {
     extend: {

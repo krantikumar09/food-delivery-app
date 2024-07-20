@@ -1,9 +1,10 @@
-import React from "react";
-import { StoreContext } from "../../context/StoreContext";
 import { useContext, useState } from "react";
+import { StoreContext } from "../../context/StoreContext";
+import axios from "axios";
 
 const PlaceOrder = () => {
-  const { getTotalCartAmount, food_list, cartItems } = useContext(StoreContext);
+  const { getTotalCartAmount, token, food_list, cartItems, url } =
+    useContext(StoreContext);
 
   const [data, setData] = useState({
     firstName: "",
@@ -23,10 +24,45 @@ const PlaceOrder = () => {
     setData((data) => ({ ...data, [name]: value }));
   };
 
+  const placeOrder = async (event) => {
+    event.preventDefault();
+    let orderItems = [];
+
+    food_list.map((item) => {
+      if (cartItems[item._id] > 0) {
+        let itemInfo = item;
+        itemInfo["quantity"] = cartItems[item._id];
+        orderItems.push(itemInfo);
+      }
+    });
+
+    let orderData = {
+      address: data,
+      items: orderItems,
+      amount: getTotalCartAmount() + 49,
+    };
+
+    try {
+      let response = await axios.post(url + "/api/order/place", orderData, {
+        headers: { token },
+      });
+      if (response.data.success) {
+        const { session_url } = response.data;
+        window.location.replace(session_url);
+      }
+    } catch (error) {
+      console.log(error);
+      alert("Sowething went wrong.");
+    }
+  };
+
   return (
     <div className="order my-10">
       <div className="container mx-auto px-3">
-        <form className="flex flex-col sm:flex-row items-start justify-between gap-[50px]">
+        <form
+          onSubmit={placeOrder}
+          className="flex flex-col sm:flex-row items-start justify-between gap-[50px]"
+        >
           <div className="left w-full">
             <h2 className="text-2xl md:text-3xl font-bold">
               Delivery Infomartion
@@ -134,12 +170,12 @@ const PlaceOrder = () => {
 
             <div className="cart-total-details flex items-center justify-between mb-2">
               <p className="text-sm sm:text-base">Subtotal</p>
-              <p>$ {getTotalCartAmount()}</p>
+              <p>&#8377; {getTotalCartAmount()}</p>
             </div>
 
             <div className="cart-total-details flex items-center justify-between mb-2">
               <p className="text-sm sm:text-base">Delivery Fee</p>
-              <p>$ {getTotalCartAmount() === 0 ? 0 : 2}</p>
+              <p>&#8377; {getTotalCartAmount() === 0 ? 0 : 49}</p>
             </div>
 
             <hr className="my-1" />
@@ -147,7 +183,8 @@ const PlaceOrder = () => {
             <div className="cart-total-details flex items-center justify-between mb-2">
               <b className="text-sm sm:text-base">Total</b>
               <b>
-                $ {getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}
+                &#8377;{" "}
+                {getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 49}
               </b>
             </div>
 
