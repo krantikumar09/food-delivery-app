@@ -11,6 +11,7 @@ import LoginPopup from "./components/LoginPopup/LoginPopup";
 import Verify from "./pages/Verify/Verify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import MyOrders from "./pages/MyOrders/MyOrders";
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
@@ -26,6 +27,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/order" element={<Order />} />
           <Route path="/verify" element={<Verify />} />
+          <Route path="/myorders" element={<MyOrders />} />
         </Routes>
       </div>
       <Footer />

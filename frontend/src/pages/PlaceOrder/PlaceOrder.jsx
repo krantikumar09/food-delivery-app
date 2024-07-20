@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState, useNavigate } from "react";
 import { StoreContext } from "../../context/StoreContext";
 import axios from "axios";
 
@@ -55,6 +55,15 @@ const PlaceOrder = () => {
       alert("Sowething went wrong.");
     }
   };
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!token) {
+      navigate("/cart");
+    } else if (getTotalCartAmount() === 0) {
+      navigate("/cart");
+    }
+  }, token);
 
   return (
     <div className="order my-10">

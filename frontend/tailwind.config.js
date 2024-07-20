@@ -15,6 +15,7 @@ export default {
     "./src/components/AppDownload/AppDownload.jsx",
     "./src/pages/PlaceOrder/PlaceOrder.jsx",
     "./src/pages/Verify/Verify.jsx",
+    "./src/pages/MyOrders/MyOrders.jsx",
   ],
   theme: {
     extend: {
