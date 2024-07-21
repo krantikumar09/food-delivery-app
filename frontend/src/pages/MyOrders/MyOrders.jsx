@@ -50,7 +50,7 @@ const MyOrders = () => {
                 <p className="text-sm font-medium text-black">
                   <span>&#x25cf;</span> <b>{order.status}</b>
                 </p>
-                <button className="btn btn-info text-white bg-tomato border-none hover:bg-tomato text-sm font-medium">Track Order</button>
+                <button onClick={fetchOrders} className="btn btn-info text-white bg-tomato border-none hover:bg-tomato text-sm font-medium">Track Order</button>
               </div>
             );
           })}

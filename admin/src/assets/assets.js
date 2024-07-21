@@ -4,6 +4,7 @@ import list_icon from "./checklist.png";
 import order_icon from "./shopping-bag.png";
 import image_upload from "./image-upload.png";
 import close_icon from "./close.png"
+import parcel_icon from "./parcel_icon.png"
 
 export const assets = {
   profile,
@@ -11,5 +12,6 @@ export const assets = {
   list_icon,
   order_icon,
   image_upload,
-  close_icon
+  close_icon, 
+  parcel_icon
 };
