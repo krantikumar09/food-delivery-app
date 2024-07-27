@@ -1,4 +1,4 @@
-import  { useContext } from "react";
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { StoreContext } from "../context/StoreContext";
@@ -18,8 +18,8 @@ const Navbar = ({ setShowLogin }) => {
     <div className="navbar bg-base-100 container mx-auto py-3 md:py-5">
       {/* navbar start */}
       <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+        <div className="dropdown z-50">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden relative">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -40,18 +40,18 @@ const Navbar = ({ setShowLogin }) => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 gap-5"
           >
-            <a href="/">Home</a>
-            <a href="#explore-menu">Explore Menu</a>
-            <a href="#mobile-app">Mobile App</a>
-            <a href="#contact-us">Contact Us</a>
+            <Link to="/">Home</Link>
+            <Link to="#explore-menu">Explore Menu</Link>
+            <Link to="#mobile-app">Mobile App</Link>
+            <Link to="#contact-us">Contact Us</Link>
           </ul>
         </div>
         {/* logo */}
         <Link
           to="/"
-          className="text-base xs:text-xl sm:text-2xl md:text-3xl font-bold text-tomato"
+        className="logo text-md xs:text-xl sm:text-2xl md:text-3xl font-bold text-tomato"
         >
-          The Kitchn
+          The Kitchn<span className="text-black">.</span>
         </Link>
       </div>
 
@@ -83,7 +83,7 @@ const Navbar = ({ setShowLogin }) => {
           </div>
 
           {!token ? (
-            <button className="pri-btn" onClick={() => setShowLogin(true)}>
+            <button className="text-black rounded-md capitalize border border-tomato text-medium px-2.5 py-1.5 xs:px-3 xs:py-2 sm:px-4 sm:py-2 text-sm xs:text-base hover:bg-tomato hover:text-white transition-all" onClick={() => setShowLogin(true)}>
               sign in
             </button>
           ) : (
@@ -91,7 +91,7 @@ const Navbar = ({ setShowLogin }) => {
               {/* dropdown avatar */}
               <div className="dropdown dropdown-hover dropdown-end">
                 <div className="avatar" tabIndex={0}>
-                  <div className="w-10 rounded-full ring ring-primary ring-tomato ring-offset-2">
+                  <div className="w-10 rounded-full ring ring-tomato ring-offset-2">
                     <img src={assets.avatar} alt="avatar" />
                   </div>
                 </div>
@@ -100,14 +100,14 @@ const Navbar = ({ setShowLogin }) => {
                   className="dropdown-content z-50 menu p-2 shadow bg-white rounded-box w-52"
                 >
                   <li>
-                    <a>
+                    <Link to="/myorders">
                       <img
                         className="w-4 h-4"
                         src={assets.shopping_bag}
                         alt="shopping pag"
                       />
                       <p className="text-sm">Orders</p>
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a onClick={logout}>

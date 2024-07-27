@@ -96,56 +96,18 @@
   left: 6vw;
   animation: fadeIn 2.5s;
   -webkit-animation: fadeIn 2.5s;
-  z-index: 2;
-}
-
-.header-contents h2 {
-  font-weight: 800;
-  color: #fff;
-  font-size: max(4vw, 18px);
-  text-transform: capitalize;
-}
-
-.header-contents p {
-  color: #fff;
-  /* font-size: 1.5vw; */
-}
-
-.header-contents button {
-  color: #747474;
-  padding: 1vw 2vw;
-  background-color: #fff;
-  border: none;
-  border-radius: 50px;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -o-border-radius: 50px;
-  font-size: 14px;
+  z-index: 1;
 }
 
 @media only screen and (max-width: 1050px) {
   .header {
-    height: 58vw;
+    height: 70vw;
   }
 }
 
 @media only screen and (max-width: 769px) {
   .header-contents {
     max-width: 80%;
-  }
-
-  .header-contents h2 {
-    font-size: 22px;
-  }
-
-  .header-contents p {
-    font-size: 1.6vw;
-  }
-
-  .header-contents button {
-    padding: 1.4vw 3.8vw;
-    font-size: 12px;
   }
 }
 

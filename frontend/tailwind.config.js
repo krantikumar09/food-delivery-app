@@ -4,6 +4,7 @@ export default {
     "./index.html",
     "./src/App.jsx",
     "./src/components/Navbar.jsx",
+    "./src/components/Header/Header.jsx",
     "./src/pages/Cart/Cart.jsx",
     "./src/pages/PlaceOrder/PlaceOrder.jsx",
     "./src/pages/Home/Home.jsx",

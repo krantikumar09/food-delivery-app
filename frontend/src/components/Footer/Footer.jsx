@@ -8,9 +8,9 @@ const Footer = () => {
           <div>
             <a
               href="/"
-              className="text-3xl xs:text-3xl sm:text-2xl md:text-3xl font-bold text-tomato mb-5"
+              className="logo text-3xl xs:text-3xl sm:text-2xl md:text-3xl font-bold text-tomato mb-5"
             >
-              The Kitchn
+              The Kitchn<span className="text-black">.</span>
             </a>
 
             <p className="text-sm text-para-color">Taste like mother's hand</p>
@@ -51,7 +51,7 @@ const Footer = () => {
         {/* copyright */}
 
         <p className="text-center w-full mt-10 text-para-color">
-          Copyright 2024 &copy; thekitchn.com - All Right Reserved.
+          Copyright 2024 &copy; The Kitch. - All Right Reserved.
         </p>
       </div>
     </div>
