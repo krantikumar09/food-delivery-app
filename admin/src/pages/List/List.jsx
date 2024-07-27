@@ -4,9 +4,8 @@ import { toast } from "react-toastify";
 import { assets } from "../../assets/assets";
 import { data } from "autoprefixer";
 
-const List = () => {
+const List = ({ url }) => {
 
-  const url = "http://localhost:4000"
 
   const [list, setList] = useState();
 

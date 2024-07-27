@@ -4,9 +4,9 @@ import axios from "axios";
 // import "url-polyfill";
 import { toast } from "react-toastify";
 
-const Add = () => {
+const Add = ({ url }) => {
   
-  const url = "http://localhost:4000"
+  // const url = "http://localhost:4000"
 
   const [image, setImage] = useState(false);
 
