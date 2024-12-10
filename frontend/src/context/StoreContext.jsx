@@ -5,7 +5,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
-  const url = "https://thekitchn-backend.netlify.app/";
+  const url = "https://thekitchn-backend.netlify.app";
   const [food_list, setFoodList] = useState([]);
   const [token, setToken] = useState("");
 
