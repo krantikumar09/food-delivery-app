@@ -79,6 +79,16 @@ body {
   }
 }
 
+
+/* custom classes */
+.slider-heading {
+  @apply font-fontMont font-bold text-3xl md:text-5xl text-white mb-3;
+}
+
+.slider-text {
+  @apply text-xl font-normal text-textColor-muted mb-2;
+}
+
 /* custom css */
 .header-row {
   @apply flex items-center justify-between;
@@ -89,7 +99,7 @@ body {
 }
 
 .custom-navbar {
-  @apply absolute top-full right-1 flex flex-col items-start mt-2 px-4 py-3 rounded-sm gap-2.5 md:gap-4 md:static md:flex-row mt-2 md:mt-0 opacity-0 md:opacity-100 md:scale-100 bg-slate-200  md:bg-inherit;
+  @apply absolute top-full right-1 flex flex-col items-start  px-4 py-3 rounded-sm gap-2.5 md:gap-4 md:static md:flex-row mt-2 md:mt-0 opacity-0 md:opacity-100 md:scale-100 bg-slate-200  md:bg-inherit z-[100];
 }
 
 .custom-navbar.active {
@@ -100,6 +110,10 @@ body {
   @apply text-sm md:text-base font-normal md:mx-2  cursor-pointer;
 }
 
-button .outline {
-  background-color: red;
+.slider-container::before {
+  @apply absolute content-none w-full h-full bg-black top-0 left-0; 
+}
+
+.slider-btn {
+  @apply absolute top-1/2 transform -translate-y-1/2 z-50 text-textColor-heading bg-white p-2 hidden md:block;
 }

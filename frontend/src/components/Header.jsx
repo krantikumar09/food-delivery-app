@@ -17,7 +17,6 @@ const Header = () => {
 
   return (
     <header className="header relative py-4">
-      <div className="container mx-auto px-4">
         <div className="header-row">
           {/* logo */}
           <a className="logo" href="#">
@@ -63,7 +62,6 @@ const Header = () => {
             </Avatar> */}
           </div>
         </div>
-      </div>
     </header>
   );
 };

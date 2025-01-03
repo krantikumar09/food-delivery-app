@@ -1,4 +1,4 @@
-import React from 'react'
+
 import LoginButton from './LoginButton'
 
 const Navbar = ({ navOpen }) => {
