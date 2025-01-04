@@ -1,18 +1,23 @@
+import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
-import Hero from "./components/Hero";
 import "./output.css";
 import "swiper/css";
 import "swiper/css/navigation";
+import Home from "./pages/Home";
+import Cart from "./pages/Cart";
+import PlaceOrder from "./pages/PlaceOrder";
 
 export const rupeeSign = '&#8377';
 
 function App() {
   return (
     <>
-      <div className="container mx-auto px-4">
         <Header />
-      </div>
-      <Hero />
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/cart" element={<Cart/>}/>
+          <Route path="/order" element={<PlaceOrder/>}/>
+        </Routes>
     </>
   );
 }

@@ -64,11 +64,16 @@ const Hero = () => {
     <section className="hero h-[80vh] relative">
       <Swiper
         slidesPerView={1}
-        spaceBetween={30}
+        spaceBetween={0}
         loop={true}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
+        }}
+        speed={1000}
+        effect="fade"
+        fadeEffect={{
+          crossFade: true,
         }}
         keyboard={{
           enabled: true,
@@ -77,14 +82,14 @@ const Hero = () => {
           clickable: true,
         }}
         navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
+          prevEl: prevRef.current,
+          nextEl: nextRef.current,
         }}
         onInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
-            swiper.navigation.update();
-          }}
+          swiper.params.navigation.prevEl = prevRef.current;
+          swiper.params.navigation.nextEl = nextRef.current;
+          swiper.navigation.update();
+        }}
         modules={[Autoplay, Keyboard, Navigation]}
         className="mySwiper w-full h-full"
       >
@@ -97,12 +102,12 @@ const Hero = () => {
                 alt={slide.heading}
                 className="w-full h-full object-cover relative"
               />
-                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
               {/* Content overlay */}
               <div className="absolute left-[10%] bottom-[20%] z-50 text-white">
                 <h1 className="slider-heading text-white">{slide.heading}</h1>
                 <p className="slider-text">&#8377; {slide.price}</p>
-                <Button className="mt-3">{slide.buttonText}</Button>
+                <Button className="mt-3" size="lg">{slide.buttonText}</Button>
               </div>
             </div>
           </SwiperSlide>
@@ -110,8 +115,12 @@ const Hero = () => {
       </Swiper>
 
       {/* custom arrows */}
-      <button className="slider-btn slider-prev-btn left-0" ref={prevRef}><FontAwesomeIcon icon={faArrowLeft}/></button>
-      <button className="slider-btn slider-next-btn right-0" ref={nextRef}><FontAwesomeIcon icon={faArrowRight}/></button>
+      <button className="slider-btn slider-prev-btn left-0" ref={prevRef}>
+        <FontAwesomeIcon icon={faArrowLeft} />
+      </button>
+      <button className="slider-btn slider-next-btn right-0" ref={nextRef}>
+        <FontAwesomeIcon icon={faArrowRight} />
+      </button>
     </section>
   );
 };

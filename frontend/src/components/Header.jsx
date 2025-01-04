@@ -17,6 +17,7 @@ const Header = () => {
 
   return (
     <header className="header relative py-4">
+        <div className="container">
         <div className="header-row">
           {/* logo */}
           <a className="logo" href="#">
@@ -61,6 +62,7 @@ const Header = () => {
               <AvatarFallback>CN</AvatarFallback>
             </Avatar> */}
           </div>
+        </div>
         </div>
     </header>
   );
