@@ -3,7 +3,7 @@ import SectionHeading from "./SectionHeading";
 
 const ExploreMenu = ({ category, setCategory }) => {
   return (
-    <section className="explore-menu section-margin">
+    <section className="explore-menu section-margin  scroll-mt-8" id="exploreMenu">
       <SectionHeading heading="Explore Menu" subheading="Delicious food for you" />
 
       <div className="explore-menu-list">

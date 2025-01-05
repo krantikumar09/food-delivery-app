@@ -16,7 +16,7 @@ const Header = () => {
   const [navOpen, setNavOpen] = useState(false);
 
   return (
-    <header className="header relative py-4">
+    <header className="header relative py-4" id="#home">
         <div className="container">
         <div className="header-row">
           {/* logo */}

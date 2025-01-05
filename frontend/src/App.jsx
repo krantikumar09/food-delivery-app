@@ -6,18 +6,20 @@ import "swiper/css/navigation";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import PlaceOrder from "./pages/PlaceOrder";
+import Footer from "./components/Footer";
 
-export const rupeeSign = '&#8377';
+export const rupeeSign = "&#8377";
 
 function App() {
   return (
     <>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/cart" element={<Cart/>}/>
-          <Route path="/order" element={<PlaceOrder/>}/>
-        </Routes>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/order" element={<PlaceOrder />} />
+      </Routes>
+      <Footer />
     </>
   );
 }
