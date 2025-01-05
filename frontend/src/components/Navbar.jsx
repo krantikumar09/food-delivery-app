@@ -19,8 +19,8 @@ const Navbar = ({ navOpen }) => {
       className: "nav-item"
     },
     {
-      label: "Mobile App",
-      link: "#mobileApp",
+      label: "Contact Us",
+      link: "#contactUs",
       className: "nav-item"
     }
   ]

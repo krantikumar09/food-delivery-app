@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Hero from "../components/Hero";
 import ExploreMenu from "../components/ExploreMenu";
 import FoodDisplay from "../components/FoodDisplay";
+import Newsletter from "../components/Newsletter";
 
 const Home = () => {
 
@@ -14,6 +15,7 @@ const Home = () => {
         <ExploreMenu category={category} setCategory={setCategory}/>
         <FoodDisplay category={category}/>
       </div>
+      <Newsletter/>
     </>
   );
 };
