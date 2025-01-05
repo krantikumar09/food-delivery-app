@@ -30,12 +30,12 @@ const Header = () => {
           {/* header right */}
           <div className="header-right flex items-center gap-2">
             {/* search button */}
-            <Button variant="outline" size="icon">
+            <Button variant="iconBtn" size="iconBtn">
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </Button>
 
             {/* cart button */}
-            <Button variant="outline" size="icon" className="outline-none">
+            <Button variant="iconBtn" size="iconBtn" className="outline-none">
               <FontAwesomeIcon icon={faCartShopping} />
             </Button>
 
@@ -43,7 +43,7 @@ const Header = () => {
             <Button
               className="menu-btn md:hidden"
               variant="outline"
-              size="icon"
+              size="iconBtn"
               onClick={() => setNavOpen((prev) => !prev)}
             >
               {navOpen ? (
