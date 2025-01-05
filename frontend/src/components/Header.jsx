@@ -8,16 +8,16 @@ import {
   faClose,
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
-import LoginButton from "./LoginButton";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-const Header = () => {
+// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+const Header = ({ setIsLoginPopOpen }) => {
   const [navOpen, setNavOpen] = useState(false);
 
   return (
     <header className="header relative py-4" id="#home">
-        <div className="container">
+      <div className="container">
         <div className="header-row">
           {/* logo */}
           <a className="logo" href="#">
@@ -54,7 +54,7 @@ const Header = () => {
             </Button>
 
             {/* login / signup button */}
-            <LoginButton label="Login" className="hidden md:block" />
+            <Button onClick={() => setIsLoginPopOpen(true)}>Login</Button>
 
             {/* avatar */}
             {/* <Avatar>
@@ -63,7 +63,7 @@ const Header = () => {
             </Avatar> */}
           </div>
         </div>
-        </div>
+      </div>
     </header>
   );
 };

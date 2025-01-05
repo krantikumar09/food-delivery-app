@@ -203,10 +203,11 @@ body {
   @apply font-fontOpenSans font-normal text-xs md:text-sm text-textColor-body;
 }
 
-.copyright-text a {
-
-}
-
 .social-icons {
   @apply flex items-center gap-4 text-xl text-textColor-body cursor-pointer;
 }
+
+.login-switch-link {
+  @apply font-medium text-textColor-link underline underline-offset-4 cursor-pointer;
+}
+
