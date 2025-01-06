@@ -7,18 +7,13 @@ import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import PlaceOrder from "./pages/PlaceOrder";
 import Footer from "./components/Footer";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import LoginPopup from "./components/LoginPopup";
-
-export const rupeeSign = "&#8377";
 
 function App() {
 
   const [ isLoginPopOpen, setIsLoginPopOpen] = useState(false);
-  useEffect(() => {
-    console.log(isLoginPopOpen)
-  }, [])
-
+  
   return (
     <>
       { isLoginPopOpen ? <LoginPopup isOpen={isLoginPopOpen}

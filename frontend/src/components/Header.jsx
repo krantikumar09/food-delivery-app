@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import { Button } from "@/components/ui/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,21 +9,22 @@ import {
   faClose,
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
-
+import { StoreContext } from "../context/StoreContext";
 
 // import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const Header = ({ setIsLoginPopOpen }) => {
   const [navOpen, setNavOpen] = useState(false);
+  const { getTotalCartAmount } = useContext(StoreContext);
 
   return (
     <header className="header relative py-4" id="#home">
       <div className="container">
         <div className="header-row">
           {/* logo */}
-          <a className="logo" href="#">
+          <Link to="/" className="logo">
             The Kitchn.
-          </a>
+          </Link>
 
           {/* header center */}
           <Navbar navOpen={navOpen} />
@@ -35,9 +37,11 @@ const Header = ({ setIsLoginPopOpen }) => {
             </Button>
 
             {/* cart button */}
-            <Button variant="iconBtn" size="iconBtn" className="outline-none">
-              <FontAwesomeIcon icon={faCartShopping} />
-            </Button>
+            <Link to="/cart">
+              <Button variant="iconBtn" size="iconBtn" className="outline-none">
+                <FontAwesomeIcon icon={faCartShopping} />
+              </Button>
+            </Link>
 
             {/* menu button */}
             <Button

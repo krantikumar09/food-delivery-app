@@ -698,6 +698,11 @@ body {
   margin-right: auto;
 }
 
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .mb-12 {
   margin-bottom: 3rem;
 }
@@ -706,8 +711,16 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.mt-16 {
+  margin-top: 4rem;
+}
+
 .mt-3 {
   margin-top: 0.75rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
 }
 
 .mt-6 {
@@ -720,6 +733,10 @@ body {
 
 .inline-flex {
   display: inline-flex;
+}
+
+.table {
+  display: table;
 }
 
 .grid {
@@ -758,6 +775,10 @@ body {
   width: 2.5rem;
 }
 
+.w-28 {
+  width: 7rem;
+}
+
 .w-4 {
   width: 1rem;
 }
@@ -782,6 +803,10 @@ body {
   min-width: 5rem;
 }
 
+.max-w-20 {
+  max-width: 5rem;
+}
+
 .max-w-lg {
   max-width: 32rem;
 }
@@ -794,12 +819,20 @@ body {
   max-width: 24rem;
 }
 
+.max-w-xl {
+  max-width: 36rem;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
 
 .shrink-0 {
   flex-shrink: 0;
+}
+
+.caption-bottom {
+  caption-side: bottom;
 }
 
 .translate-x-\[-50\%\] {
@@ -877,6 +910,11 @@ body {
        column-gap: 2.5rem;
 }
 
+.gap-x-12 {
+  -moz-column-gap: 3rem;
+       column-gap: 3rem;
+}
+
 .gap-y-4 {
   row-gap: 1rem;
 }
@@ -909,10 +947,12 @@ body {
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
-.space-y-8 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+.justify-self-end {
+  justify-self: end;
+}
+
+.overflow-auto {
+  overflow: auto;
 }
 
 .overflow-hidden {
@@ -949,6 +989,14 @@ body {
 
 .border-2 {
   border-width: 2px;
+}
+
+.border-b {
+  border-bottom-width: 1px;
+}
+
+.border-t {
+  border-top-width: 1px;
 }
 
 .border-none {
@@ -1002,6 +1050,10 @@ body {
   background-color: hsl(var(--muted));
 }
 
+.bg-muted\/50 {
+  background-color: hsl(var(--muted) / 0.5);
+}
+
 .bg-red-600\/60 {
   background-color: rgb(220 38 38 / 0.6);
 }
@@ -1013,6 +1065,11 @@ body {
 .bg-slate-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(241 245 249 / var(--tw-bg-opacity, 1));
+}
+
+.bg-textColor-heading {
+  --tw-bg-opacity: 1;
+  background-color: rgb(44 62 80 / var(--tw-bg-opacity, 1));
 }
 
 .bg-transparent {
@@ -1057,6 +1114,11 @@ body {
 
 .p-6 {
   padding: 1.5rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .px-3 {
@@ -1120,6 +1182,10 @@ body {
 
 .text-center {
   text-align: center;
+}
+
+.align-middle {
+  vertical-align: middle;
 }
 
 .font-fontMont {
@@ -1213,6 +1279,11 @@ body {
 .text-textColor-heading {
   --tw-text-opacity: 1;
   color: rgb(44 62 80 / var(--tw-text-opacity, 1));
+}
+
+.text-textColor-muted {
+  --tw-text-opacity: 1;
+  color: rgb(173 181 189 / var(--tw-text-opacity, 1));
 }
 
 .text-white {
@@ -1726,6 +1797,20 @@ body {
   text-underline-offset: 4px;
 }
 
+/* place order */
+
+.form-col {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .form-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .file\:border-0::file-selector-button {
   border-width: 0px;
 }
@@ -1777,12 +1862,20 @@ body {
   background-color: rgb(255 87 51 / 0.8);
 }
 
+.hover\:bg-muted\/50:hover {
+  background-color: hsl(var(--muted) / 0.5);
+}
+
 .hover\:bg-primary-foreground:hover {
   background-color: hsl(var(--primary-foreground));
 }
 
 .hover\:bg-secondary\/80:hover {
   background-color: hsl(var(--secondary) / 0.8);
+}
+
+.hover\:bg-textColor-heading\/80:hover {
+  background-color: rgb(44 62 80 / 0.8);
 }
 
 .hover\:text-accent-foreground:hover {
@@ -1858,6 +1951,10 @@ body {
 
 .data-\[state\=open\]\:bg-accent[data-state="open"] {
   background-color: hsl(var(--accent));
+}
+
+.data-\[state\=selected\]\:bg-muted[data-state="selected"] {
+  background-color: hsl(var(--muted));
 }
 
 .data-\[state\=checked\]\:text-primary-foreground[data-state="checked"] {
@@ -1969,6 +2066,14 @@ body {
     top: 50%;
   }
 
+  .md\:col-span-5 {
+    grid-column: span 5 / span 5;
+  }
+
+  .md\:col-span-7 {
+    grid-column: span 7 / span 7;
+  }
+
   .md\:mb-0 {
     margin-bottom: 0px;
   }
@@ -1992,6 +2097,10 @@ body {
   .md\:-translate-y-1\/2 {
     --tw-translate-y: -50%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .md\:grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 
   .md\:grid-cols-3 {
@@ -2045,6 +2154,19 @@ body {
   }
 }
 
+.\[\&\:has\(\[role\=checkbox\]\)\]\:pr-0:has([role=checkbox]) {
+  padding-right: 0px;
+}
+
+.\[\&\>\[role\=checkbox\]\]\:translate-y-\[2px\]>[role=checkbox] {
+  --tw-translate-y: 2px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.\[\&\>tr\]\:last\:border-b-0:last-child>tr {
+  border-bottom-width: 0px;
+}
+
 .\[\&_svg\]\:pointer-events-none svg {
   pointer-events: none;
 }
@@ -2058,3 +2180,10 @@ body {
   flex-shrink: 0;
 }
 
+.\[\&_tr\:last-child\]\:border-0 tr:last-child {
+  border-width: 0px;
+}
+
+.\[\&_tr\]\:border-b tr {
+  border-bottom-width: 1px;
+}

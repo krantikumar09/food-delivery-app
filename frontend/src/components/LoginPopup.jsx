@@ -23,7 +23,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 // schema for zod
 const formSchema = z.object({
-  name: z.string().min(1, {
+  name: z.string().min(2, {
     message: "Name must be at least 2 character.",
   }),
   email: z.string().email({

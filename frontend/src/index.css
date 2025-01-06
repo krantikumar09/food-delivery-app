@@ -211,3 +211,10 @@ body {
   @apply font-medium text-textColor-link underline underline-offset-4 cursor-pointer;
 }
 
+
+
+/* place order */
+
+.form-col {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-2;
+}
