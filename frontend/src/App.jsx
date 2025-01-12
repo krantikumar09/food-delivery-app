@@ -11,13 +11,18 @@ import { useState } from "react";
 import LoginPopup from "./components/LoginPopup";
 
 function App() {
+  const [isLoginPopOpen, setIsLoginPopOpen] = useState(false);
 
-  const [ isLoginPopOpen, setIsLoginPopOpen] = useState(false);
-  
   return (
     <>
-      { isLoginPopOpen ? <LoginPopup isOpen={isLoginPopOpen}
-        onClose={() => setIsLoginPopOpen(false)}/> : <></> }
+      {isLoginPopOpen ? (
+        <LoginPopup
+          isOpen={isLoginPopOpen}
+          onClose={() => setIsLoginPopOpen(false)}
+        />
+      ) : (
+        <></>
+      )}
       <Header setIsLoginPopOpen={setIsLoginPopOpen} />
       <Routes>
         <Route path="/" element={<Home />} />
