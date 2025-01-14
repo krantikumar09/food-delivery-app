@@ -58,7 +58,7 @@ const Header = ({ setIsLoginPopOpen }) => {
             </Button>
 
             {/* login / signup button */}
-            <Button onClick={() => setIsLoginPopOpen(true)}>Login</Button>
+            <Button onClick={() => setIsLoginPopOpen(true)} className="hidden md:block">Login</Button>
 
             {/* avatar */}
             {/* <Avatar>
